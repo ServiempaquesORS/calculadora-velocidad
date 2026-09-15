@@ -39,16 +39,23 @@
 
         <details class="assumptions">
           <summary>Tiempos usados en la comparación (ajustables)</summary>
+          <p class="source-note">Valores base según fuentes de gestión humana y normativa SG-SST en Colombia. Ajústalos si su experiencia real es distinta.</p>
+          <ul class="sources-list">
+            <li>Reclutamiento y selección: recomendación de especialistas en selección de personal (recursoexterno.com)</li>
+            <li>Exámenes médicos: proveedores de salud ocupacional certificados en Colombia (protegerips.com, gslocupacional.com)</li>
+            <li>Afiliación EPS/ARL/pensión: Decreto 1072 de 2015 — cobertura activa desde el primer día laboral</li>
+            <li>Inducción SG-SST: Resolución 0312 de 2019 — inducción el primer día de trabajo (safetya.co)</li>
+          </ul>
           <label for="diasReclutamiento">Publicación y reclutamiento (días)</label>
-          <input type="number" id="diasReclutamiento" value="3" min="0">
+          <input type="number" id="diasReclutamiento" value="5" min="0">
           <label for="diasSeleccion">Entrevistas y selección (días)</label>
-          <input type="number" id="diasSeleccion" value="4" min="0">
+          <input type="number" id="diasSeleccion" value="7" min="0">
           <label for="diasExamenes">Exámenes médicos ocupacionales (días)</label>
-          <input type="number" id="diasExamenes" value="2" min="0">
+          <input type="number" id="diasExamenes" value="1" min="0">
           <label for="diasAfiliacion">Trámites de afiliación (EPS, ARL, pensión, caja) (días)</label>
-          <input type="number" id="diasAfiliacion" value="2" min="0">
+          <input type="number" id="diasAfiliacion" value="1" min="0">
           <label for="diasInduccion">Inducción y SG-SST (días)</label>
-          <input type="number" id="diasInduccion" value="2" min="0">
+          <input type="number" id="diasInduccion" value="1" min="0">
           <label for="capacidadSeleccion">Entrevistas que un reclutador procesa por día</label>
           <input type="number" id="capacidadSeleccion" value="3" min="1">
           <label for="capacidadExamenes">Exámenes médicos que se agendan por día</label>
