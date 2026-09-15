@@ -54,8 +54,8 @@
           <input type="number" id="capacidadSeleccion" value="3" min="1">
           <label for="capacidadExamenes">Exámenes médicos que se agendan por día</label>
           <input type="number" id="capacidadExamenes" value="5" min="1">
-          <label for="diasNosotros">Con nosotros: personal en planta (horas)</label>
-          <input type="number" id="diasNosotros" value="48" min="0">
+          <label for="diasNosotros">Con nosotros: personal en planta (horas, rango típico 24-48h)</label>
+          <input type="number" id="diasNosotros" value="36" min="0">
         </details>
 
         <button id="calcularVelocidad">Comparar tiempos de reacción</button>
@@ -79,14 +79,27 @@
           </div>
         </div>
 
-        <div class="breakdown">
-          <div class="breakdown-row"><span>Publicación y reclutamiento</span><strong id="bReclutamiento">0 días</strong></div>
-          <div class="breakdown-row"><span>Entrevistas y selección</span><strong id="bSeleccion">0 días</strong></div>
-          <div class="breakdown-row"><span>Exámenes médicos ocupacionales</span><strong id="bExamenes">0 días</strong></div>
-          <div class="breakdown-row"><span>Trámites de afiliación</span><strong id="bAfiliacion">0 días</strong></div>
-          <div class="breakdown-row"><span>Inducción y SG-SST</span><strong id="bInduccion">0 días</strong></div>
-          <div class="breakdown-row total"><span>Total contratación directa</span><strong id="bTotalDirecto">0 días</strong></div>
+        <div class="breakdown-compare">
+          <div class="breakdown-col">
+            <h4>Contratación directa</h4>
+            <div class="breakdown-row"><span>Publicación y reclutamiento</span><strong id="bReclutamiento">0 días</strong></div>
+            <div class="breakdown-row"><span>Entrevistas y selección</span><strong id="bSeleccion">0 días</strong></div>
+            <div class="breakdown-row"><span>Exámenes médicos ocupacionales</span><strong id="bExamenes">0 días</strong></div>
+            <div class="breakdown-row"><span>Trámites de afiliación</span><strong id="bAfiliacion">0 días</strong></div>
+            <div class="breakdown-row"><span>Inducción y SG-SST</span><strong id="bInduccion">0 días</strong></div>
+            <div class="breakdown-row total"><span>Total</span><strong id="bTotalDirecto">0 días</strong></div>
+          </div>
+          <div class="breakdown-col nosotros">
+            <h4>Con nosotros</h4>
+            <div class="breakdown-row"><span>Verificación de disponibilidad en bolsa de personal</span><strong id="bVerificacion">0 h</strong></div>
+            <div class="breakdown-row"><span>Confirmación de perfil y asignación de turno</span><strong id="bConfirmacion">0 h</strong></div>
+            <div class="breakdown-row"><span>Alistamiento y llegada a planta</span><strong id="bAlistamiento">0 h</strong></div>
+            <div class="breakdown-row muted"><span>Exámenes médicos y afiliaciones</span><strong>Ya vigentes</strong></div>
+            <div class="breakdown-row total"><span>Total</span><strong id="bTotalNosotros">0 h</strong></div>
+          </div>
         </div>
+
+        <p class="result-note">El personal ya está examinado, afiliado y vinculado con nosotros — por eso su proceso no repite esas etapas.</p>
 
         <ul class="sources-list">
           <li>Reclutamiento y selección: recomendación de especialistas en selección de personal (recursoexterno.com)</li>

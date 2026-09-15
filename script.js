@@ -53,6 +53,15 @@ document.getElementById('calcularVelocidad').addEventListener('click', () => {
   document.getElementById('bInduccion').textContent = `${diasInduccion} días`;
   document.getElementById('bTotalDirecto').textContent = `${totalDirecto} días`;
 
+  const horasVerificacion = Math.round(horasNosotros * 0.25);
+  const horasConfirmacion = Math.round(horasNosotros * 0.25);
+  const horasAlistamiento = horasNosotros - horasVerificacion - horasConfirmacion;
+
+  document.getElementById('bVerificacion').textContent = `${horasVerificacion} h`;
+  document.getElementById('bConfirmacion').textContent = `${horasConfirmacion} h`;
+  document.getElementById('bAlistamiento').textContent = `${horasAlistamiento} h`;
+  document.getElementById('bTotalNosotros').textContent = `${horasNosotros} h`;
+
   const maxDias = Math.max(totalDirecto, totalNosotrosDias, 1);
   document.getElementById('barraDirecta').style.width = `${Math.max((totalDirecto / maxDias) * 100, 6)}%`;
   document.getElementById('barraNosotros').style.width = `${Math.max((totalNosotrosDias / maxDias) * 100, 6)}%`;

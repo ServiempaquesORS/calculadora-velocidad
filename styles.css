@@ -267,6 +267,45 @@ input:focus {
   color: var(--off-white);
 }
 
+.breakdown-compare {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  margin-top: 16px;
+}
+@media (min-width: 560px) {
+  .breakdown-compare { grid-template-columns: 1fr 1fr; }
+}
+.breakdown-col h4 {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: #C9C4B5;
+  margin: 0 0 8px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--line);
+}
+.breakdown-col.nosotros h4 { color: var(--savings); border-bottom-color: var(--savings); }
+.breakdown-col .breakdown-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 8px 0;
+  border-top: 1px solid var(--line);
+  font-size: 13px;
+}
+.breakdown-col .breakdown-row:first-of-type { border-top: none; }
+.breakdown-col .breakdown-row.muted { color: var(--steel); font-style: italic; }
+.breakdown-col .breakdown-row.total {
+  border-top: 1px solid var(--amber);
+  margin-top: 2px;
+  font-size: 14px;
+}
+.breakdown-col.nosotros .breakdown-row.total { border-top-color: var(--savings); }
+.breakdown-col .breakdown-row strong { color: var(--off-white); text-align: right; }
+
 .foot {
   padding: 24px;
   font-size: 12px;
