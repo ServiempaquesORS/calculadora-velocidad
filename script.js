@@ -18,6 +18,8 @@ document.getElementById('calcularVelocidad').addEventListener('click', () => {
   const diasExamenes = parseFloat(document.getElementById('diasExamenes').value) || 0;
   const diasAfiliacion = parseFloat(document.getElementById('diasAfiliacion').value) || 0;
   const diasInduccion = parseFloat(document.getElementById('diasInduccion').value) || 0;
+  const capacidadSeleccion = parseFloat(document.getElementById('capacidadSeleccion').value) || 1;
+  const capacidadExamenes = parseFloat(document.getElementById('capacidadExamenes').value) || 1;
   const horasNosotros = parseFloat(document.getElementById('diasNosotros').value) || 48;
 
   if (operarios <= 0) {
@@ -25,13 +27,31 @@ document.getElementById('calcularVelocidad').addEventListener('click', () => {
     return;
   }
 
-  const totalDirecto = diasReclutamiento + diasSeleccion + diasExamenes + diasAfiliacion + diasInduccion;
+  // La selección y los exámenes médicos se alargan si hay más operarios que procesar por día
+  const diasSeleccionTotal = diasSeleccion + Math.floor((operarios - 1) / capacidadSeleccion);
+  const diasExamenesTotal = diasExamenes + Math.floor((operarios - 1) / capacidadExamenes);
+
+  const totalDirecto = diasReclutamiento + diasSeleccionTotal + diasExamenesTotal + diasAfiliacion + diasInduccion;
   const totalNosotrosDias = horasNosotros / 24;
   const diferencia = totalDirecto - totalNosotrosDias;
 
   document.getElementById('diferenciaDias').textContent = `${Math.round(diferencia)} días más rápido`;
   document.getElementById('totalDirecto').textContent = `${totalDirecto} días`;
   document.getElementById('totalNosotros').textContent = `${horasNosotros} horas`;
+
+  const extraSeleccion = diasSeleccionTotal - diasSeleccion;
+  const extraExamenes = diasExamenesTotal - diasExamenes;
+
+  document.getElementById('bReclutamiento').textContent = `${diasReclutamiento} días`;
+  document.getElementById('bSeleccion').textContent = extraSeleccion > 0
+    ? `${diasSeleccionTotal} días (${diasSeleccion} base + ${extraSeleccion} por volumen)`
+    : `${diasSeleccionTotal} días`;
+  document.getElementById('bExamenes').textContent = extraExamenes > 0
+    ? `${diasExamenesTotal} días (${diasExamenes} base + ${extraExamenes} por volumen)`
+    : `${diasExamenesTotal} días`;
+  document.getElementById('bAfiliacion').textContent = `${diasAfiliacion} días`;
+  document.getElementById('bInduccion').textContent = `${diasInduccion} días`;
+  document.getElementById('bTotalDirecto').textContent = `${totalDirecto} días`;
 
   const maxDias = Math.max(totalDirecto, totalNosotrosDias, 1);
   document.getElementById('barraDirecta').style.width = `${Math.max((totalDirecto / maxDias) * 100, 6)}%`;

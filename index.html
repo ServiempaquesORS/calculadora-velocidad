@@ -49,6 +49,10 @@
           <input type="number" id="diasAfiliacion" value="2" min="0">
           <label for="diasInduccion">Inducción y SG-SST (días)</label>
           <input type="number" id="diasInduccion" value="2" min="0">
+          <label for="capacidadSeleccion">Entrevistas que un reclutador procesa por día</label>
+          <input type="number" id="capacidadSeleccion" value="3" min="1">
+          <label for="capacidadExamenes">Exámenes médicos que se agendan por día</label>
+          <input type="number" id="capacidadExamenes" value="5" min="1">
           <label for="diasNosotros">Con nosotros: personal en planta (horas)</label>
           <input type="number" id="diasNosotros" value="48" min="0">
         </details>
@@ -72,6 +76,15 @@
             <div class="timeline-bar nosotros" id="barraNosotros"></div>
             <span class="timeline-total" id="totalNosotros">48 horas</span>
           </div>
+        </div>
+
+        <div class="breakdown">
+          <div class="breakdown-row"><span>Publicación y reclutamiento</span><strong id="bReclutamiento">0 días</strong></div>
+          <div class="breakdown-row"><span>Entrevistas y selección</span><strong id="bSeleccion">0 días</strong></div>
+          <div class="breakdown-row"><span>Exámenes médicos ocupacionales</span><strong id="bExamenes">0 días</strong></div>
+          <div class="breakdown-row"><span>Trámites de afiliación</span><strong id="bAfiliacion">0 días</strong></div>
+          <div class="breakdown-row"><span>Inducción y SG-SST</span><strong id="bInduccion">0 días</strong></div>
+          <div class="breakdown-row total"><span>Total contratación directa</span><strong id="bTotalDirecto">0 días</strong></div>
         </div>
       </div>
 
