@@ -3,15 +3,15 @@
 
 const CONFIG = {
   // Supabase (Project Settings → API)
-  SUPABASE_URL: "https://TU-PROYECTO.supabase.co",
-  SUPABASE_ANON_KEY: "TU_ANON_KEY",
+  SUPABASE_URL: "https://cjxovsxefmontsndyiny.supabase.co/rest/v1/",
+  SUPABASE_ANON_KEY: "sb_publishable_SnMxZhZ71a5FPI2RFTQB7Q_k7UzdHAt",
 
   // EmailJS (para el correo automático de notificación)
-  EMAILJS_PUBLIC_KEY: "TU_PUBLIC_KEY",
-  EMAILJS_SERVICE_ID: "TU_SERVICE_ID",
-  EMAILJS_TEMPLATE_ID: "TU_TEMPLATE_ID",
-  NOTIFICATION_EMAIL: "correo-donde-quieres-recibir-los-leads@tuempresa.com",
+  EMAILJS_PUBLIC_KEY: "PlCnr_GmINY8zMYpi",
+  EMAILJS_SERVICE_ID: "service_b6hfk9e",
+  EMAILJS_TEMPLATE_ID: "template_3545qix",
+  NOTIFICATION_EMAIL: "orsserviempaques@gmail.com",
 
   // WhatsApp del comercial (con indicativo de país, sin + ni espacios)
-  WHATSAPP_NUMBER: "57XXXXXXXXXX"
+  WHATSAPP_NUMBER: "573215084499"
 };
