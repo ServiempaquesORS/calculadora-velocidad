@@ -111,8 +111,9 @@ input:focus {
   line-height: 1.4;
 }
 .sources-list {
-  margin: 0 0 16px;
-  padding-left: 18px;
+  margin: 16px 0 0;
+  padding: 14px 0 0 18px;
+  border-top: 1px solid var(--line);
   font-size: 11px;
   color: var(--steel);
   line-height: 1.6;
