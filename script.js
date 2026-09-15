@@ -113,13 +113,21 @@ document.getElementById('calcular').addEventListener('click', () => {
   const total = totalPorPersona * personas;
   const costoOculto = costoOcultoPorPersona * personas;
 
-  document.getElementById('costoOculto').textContent = formatCOP(costoOculto);
   document.getElementById('bSalario').textContent = formatCOP(base * personas);
-  document.getElementById('bParafiscales').textContent = formatCOP(parafiscales * personas);
-  document.getElementById('bRotacion').textContent = formatCOP(costoRotacion * personas);
-  document.getElementById('bAusentismo').textContent = formatCOP(costoAusentismo * personas);
-  document.getElementById('bSeleccion').textContent = formatCOP(costoSeleccion * personas);
   document.getElementById('bTotal').textContent = formatCOP(total);
+  document.getElementById('costoOculto').textContent = formatCOP(costoOculto);
+
+  const partes = [
+    { id: 'Parafiscales', valor: parafiscales * personas },
+    { id: 'Rotacion', valor: costoRotacion * personas },
+    { id: 'Ausentismo', valor: costoAusentismo * personas },
+    { id: 'Seleccion', valor: costoSeleccion * personas }
+  ];
+  partes.forEach(p => {
+    const pct = costoOculto > 0 ? (p.valor / costoOculto) * 100 : 0;
+    document.getElementById(`pf${p.id}`).style.width = `${pct}%`;
+    document.getElementById(`b${p.id}`).textContent = formatCOP(p.valor);
+  });
 
   ultimoCalculo = {
     salario, personas, rotacion_pct: rotacionPct * 100, ausentismo_dias: diasAusentismo,

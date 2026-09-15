@@ -3,33 +3,67 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Velocidad de reacción vs. contratación directa</title>
+<title>Servicios de Empaques ORS — Velocidad de reacción vs. contratación directa</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
 <header class="topbar">
-  <div class="topbar-inner">
-    <span class="mark">PERSONAL EN MISIÓN · CALI · YUMBO · PALMIRA</span>
+  <div class="wrap">
+    <img src="logo.png" alt="Servicios de Empaques ORS">
   </div>
 </header>
 
-<main>
-  <section class="hero">
-    <div class="hero-inner">
-      <h1>Cuando su producción sube,<br>cada día sin personal es<br>producción perdida.</h1>
-      <p class="hero-sub">Contratar directo toma semanas: reclutamiento, exámenes, afiliaciones, inducción. Con nosotros, su operación tiene personal calificado en planta en 48 horas. Compruébelo con su propio caso.</p>
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <span class="eyebrow">Personal en misión · Cali · Yumbo · Palmira</span>
+      <h1>Cuando su producción sube, cada día sin personal es <span>producción perdida</span>.</h1>
+      <p class="hero-sub">Contratar directo toma semanas: reclutamiento, exámenes, afiliaciones, inducción. Con nosotros, su operación tiene personal calificado en planta en 24-48 horas.</p>
+      <div class="hero-ctas">
+        <a href="#velocidad" class="btn btn-primary">Simular mi caso →</a>
+        <a href="#costos" class="btn btn-ghost">Ver impacto en costos</a>
+      </div>
     </div>
-  </section>
+    <svg class="crates" viewBox="0 0 340 260" xmlns="http://www.w3.org/2000/svg">
+      <g transform="translate(90,20)">
+        <polygon points="80,0 160,40 80,80 0,40" fill="#BFD83E"/>
+        <polygon points="0,40 80,80 80,160 0,120" fill="#15345B"/>
+        <polygon points="160,40 80,80 80,160 160,120" fill="#1E66B2"/>
+      </g>
+      <g transform="translate(10,130)">
+        <polygon points="70,0 140,35 70,70 0,35" fill="#F38B21"/>
+        <polygon points="0,35 70,70 70,140 0,105" fill="#15345B"/>
+        <polygon points="140,35 70,70 70,140 140,105" fill="#1E66B2"/>
+      </g>
+      <g transform="translate(170,140)">
+        <polygon points="60,0 120,30 60,60 0,30" fill="#BFD83E"/>
+        <polygon points="0,30 60,60 60,120 0,90" fill="#15345B"/>
+        <polygon points="120,30 60,60 60,120 120,90" fill="#1E66B2"/>
+      </g>
+    </svg>
+  </div>
+</section>
 
-  <section class="calc" id="velocidad">
-    <div class="calc-inner">
+<section class="section" id="velocidad">
+  <div class="wrap">
+    <div class="section-header">
+      <span class="eyebrow" style="color:var(--blue)">Simulador de velocidad</span>
+      <h2>¿Qué tan rápido necesita reaccionar?</h2>
+      <p>Compare cuánto tarda cubrir una vacante contratando directo, frente a tener personal ya disponible con nosotros.</p>
+    </div>
 
-      <div class="calc-form">
-        <h2>¿Qué tan rápido necesita reaccionar?</h2>
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-header">
+          <div class="icon-badge">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <h3>Datos de la necesidad</h3>
+        </div>
 
         <label for="operarios">¿Cuántos operarios necesita?</label>
         <input type="number" id="operarios" placeholder="Ej: 6" min="1">
@@ -58,24 +92,24 @@
           <input type="number" id="diasNosotros" value="36" min="0">
         </details>
 
-        <button id="calcularVelocidad">Comparar tiempos de reacción</button>
+        <button id="calcularVelocidad" class="btn btn-primary btn-block">Comparar tiempos de reacción</button>
       </div>
 
-      <div class="calc-result" id="resultadoVelocidad" hidden>
-        <span class="result-label">Diferencia en tiempo de reacción</span>
-        <span class="result-number" id="diferenciaDias">0 días</span>
-        <p class="result-note" id="notaVelocidad"></p>
+      <div id="resultadoVelocidad" hidden>
+        <div class="banner">
+          <span class="eyebrow">Diferencia en tiempo de reacción</span>
+          <div class="banner-number" id="diferenciaDias">0 días</div>
+          <p class="banner-note" id="notaVelocidad"></p>
+        </div>
 
-        <div class="timeline">
-          <div class="timeline-track">
-            <span class="timeline-title">Contratación directa</span>
-            <div class="timeline-bar" id="barraDirecta"></div>
-            <span class="timeline-total" id="totalDirecto">0 días</span>
+        <div class="stat-pair">
+          <div class="stat-card accent-blue">
+            <span class="stat-label">Contratación directa</span>
+            <div class="stat-value" id="totalDirecto">0 días</div>
           </div>
-          <div class="timeline-track">
-            <span class="timeline-title">Con nosotros</span>
-            <div class="timeline-bar nosotros" id="barraNosotros"></div>
-            <span class="timeline-total" id="totalNosotros">48 horas</span>
+          <div class="stat-card accent-green">
+            <span class="stat-label">Con nosotros</span>
+            <div class="stat-value" id="totalNosotros">0 h</div>
           </div>
         </div>
 
@@ -99,8 +133,6 @@
           </div>
         </div>
 
-        <p class="result-note">El personal ya está examinado, afiliado y vinculado con nosotros — por eso su proceso no repite esas etapas.</p>
-
         <ul class="sources-list">
           <li>Reclutamiento y selección: recomendación de especialistas en selección de personal (recursoexterno.com)</li>
           <li>Exámenes médicos: proveedores de salud ocupacional certificados en Colombia (protegerips.com, gslocupacional.com)</li>
@@ -108,14 +140,27 @@
           <li>Inducción SG-SST: Resolución 0312 de 2019 — inducción el primer día de trabajo (safetya.co)</li>
         </ul>
       </div>
-
     </div>
-  </section>
+  </div>
+</section>
 
-  <section class="calc secondary" id="costos">
-    <div class="calc-inner">
-      <div class="calc-form">
-        <h2>También puede ver el impacto en costos</h2>
+<section class="section alt" id="costos">
+  <div class="wrap">
+    <div class="section-header">
+      <span class="eyebrow" style="color:var(--blue)">Calculadora de costos laborales</span>
+      <h2>¿Cuánto le cuesta realmente un operario a su empresa?</h2>
+      <p>Descubra el costo oculto anual: prestaciones, rotación, ausentismo y selección, más allá del salario.</p>
+    </div>
+
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-header">
+          <div class="icon-badge">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M6 21v-2a6 6 0 0 1 12 0v2"/></svg>
+          </div>
+          <h3>Datos del cargo</h3>
+        </div>
+
         <label for="salario">Salario base mensual del cargo (COP)</label>
         <input type="number" id="salario" placeholder="Ej: 1.500.000" min="0">
         <label for="personas">Número de personas en el cargo</label>
@@ -133,47 +178,91 @@
           <label for="reemplazo">Meses de salario que cuesta reemplazar a alguien</label>
           <input type="number" id="reemplazo" value="1.5" step="0.1" min="0">
         </details>
-        <button id="calcular">Calcular costo oculto</button>
+        <button id="calcular" class="btn btn-primary btn-block">Calcular costo</button>
       </div>
 
-      <div class="calc-result" id="resultado" hidden>
-        <span class="result-label">Costo oculto anual estimado</span>
-        <span class="result-number" id="costoOculto">$0</span>
-        <p class="result-note">Esto es lo que su empresa paga por encima del salario, sin contar tercerización.</p>
-        <div class="breakdown">
-          <div class="breakdown-row"><span>Salario base anual</span><strong id="bSalario">$0</strong></div>
-          <div class="breakdown-row"><span>Parafiscales y prestaciones</span><strong id="bParafiscales">$0</strong></div>
-          <div class="breakdown-row"><span>Costo de rotación</span><strong id="bRotacion">$0</strong></div>
-          <div class="breakdown-row"><span>Costo de ausentismo</span><strong id="bAusentismo">$0</strong></div>
-          <div class="breakdown-row"><span>Costo de selección</span><strong id="bSeleccion">$0</strong></div>
-          <div class="breakdown-row total"><span>Total anual de contratación directa</span><strong id="bTotal">$0</strong></div>
+      <div>
+        <div id="resultado" hidden>
+        <div class="banner">
+          <span class="eyebrow">Costo oculto anual</span>
+          <div class="banner-number" id="costoOculto">$0</div>
+          <p class="banner-note">Esto es lo que su empresa paga por encima del salario, sin contar tercerización.</p>
+        </div>
+
+        <div class="stat-pair">
+          <div class="stat-card accent-blue">
+            <span class="stat-label">Salario base (nómina)</span>
+            <div class="stat-value" id="bSalario">$0</div>
+          </div>
+          <div class="stat-card accent-green">
+            <span class="stat-label">Costo total anual</span>
+            <div class="stat-value" id="bTotal">$0</div>
+          </div>
+        </div>
+
+        <div class="progress-block card" style="margin-top:16px;">
+          <h4>¿De dónde sale el costo oculto?</h4>
+          <div class="progress-row">
+            <span class="p-label">Prestaciones y parafiscales</span>
+            <div class="progress-track"><div class="progress-fill" id="pfParafiscales" style="width:0%;background:var(--blue)"></div></div>
+            <span class="p-value" id="bParafiscales">$0</span>
+          </div>
+          <div class="progress-row">
+            <span class="p-label">Rotación</span>
+            <div class="progress-track"><div class="progress-fill" id="pfRotacion" style="width:0%;background:var(--orange)"></div></div>
+            <span class="p-value" id="bRotacion">$0</span>
+          </div>
+          <div class="progress-row">
+            <span class="p-label">Ausentismo</span>
+            <div class="progress-track"><div class="progress-fill" id="pfAusentismo" style="width:0%;background:var(--green)"></div></div>
+            <span class="p-value" id="bAusentismo">$0</span>
+          </div>
+          <div class="progress-row">
+            <span class="p-label">Selección</span>
+            <div class="progress-track"><div class="progress-fill" id="pfSeleccion" style="width:0%;background:#15345B"></div></div>
+            <span class="p-value" id="bSeleccion">$0</span>
+          </div>
+        </div>
+        </div>
+
+        <div class="insight-panel">
+          <div class="icon-badge">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+          </div>
+          <h3>El costo real de su talento impacta <span>la rentabilidad de la operación</span></h3>
+          <p>Con datos reales, tercerizar deja de ser un gasto y pasa a ser una decisión medible.</p>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section class="calc" id="contacto">
-    <div class="calc-inner single">
-      <div class="lead-form standalone">
+<section class="section" id="contacto">
+  <div class="wrap">
+    <div class="card contact-card">
+      <div class="card-header">
+        <div class="icon-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        </div>
         <h3>¿Quiere que evaluemos su caso real?</h3>
-        <p class="result-note">Le contactamos con una propuesta ajustada a su operación.</p>
-        <label for="leadNombre">Nombre</label>
-        <input type="text" id="leadNombre" placeholder="Su nombre">
-        <label for="leadEmpresa">Empresa</label>
-        <input type="text" id="leadEmpresa" placeholder="Nombre de la empresa">
-        <label for="leadTelefono">Teléfono</label>
-        <input type="tel" id="leadTelefono" placeholder="Ej: 3001234567">
-        <label for="leadCorreo">Correo (opcional)</label>
-        <input type="email" id="leadCorreo" placeholder="correo@empresa.com">
-        <button id="enviarLead">Enviar y contactarme</button>
-        <p class="lead-status" id="leadStatus"></p>
       </div>
+      <p style="color:var(--text-muted);font-size:14px;margin-bottom:6px;">Le contactamos con una propuesta ajustada a su operación.</p>
+      <label for="leadNombre">Nombre</label>
+      <input type="text" id="leadNombre" placeholder="Su nombre">
+      <label for="leadEmpresa">Empresa</label>
+      <input type="text" id="leadEmpresa" placeholder="Nombre de la empresa">
+      <label for="leadTelefono">Teléfono</label>
+      <input type="tel" id="leadTelefono" placeholder="Ej: 3001234567">
+      <label for="leadCorreo">Correo (opcional)</label>
+      <input type="email" id="leadCorreo" placeholder="correo@empresa.com">
+      <button id="enviarLead" class="btn btn-primary btn-block">Enviar y contactarme</button>
+      <p class="lead-status" id="leadStatus"></p>
     </div>
-  </section>
-</main>
+  </div>
+</section>
 
 <footer class="foot">
-  <span>Cumplimiento SG-SST verificable · Corredor industrial Cali-Yumbo-Palmira</span>
+  <div class="wrap">Cumplimiento SG-SST verificable · Corredor industrial Cali-Yumbo-Palmira</div>
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
