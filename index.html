@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Velocidad de reacción vs. contratación directa</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <span class="mark">PERSONAL EN MISIÓN · CALI · YUMBO · PALMIRA</span>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="hero-inner">
+      <h1>Cuando su producción sube,<br>cada día sin personal es<br>producción perdida.</h1>
+      <p class="hero-sub">Contratar directo toma semanas: reclutamiento, exámenes, afiliaciones, inducción. Con nosotros, su operación tiene personal calificado en planta en 48 horas. Compruébelo con su propio caso.</p>
+    </div>
+  </section>
+
+  <section class="calc" id="velocidad">
+    <div class="calc-inner">
+
+      <div class="calc-form">
+        <h2>¿Qué tan rápido necesita reaccionar?</h2>
+
+        <label for="operarios">¿Cuántos operarios necesita?</label>
+        <input type="number" id="operarios" placeholder="Ej: 6" min="1">
+
+        <label for="diasDisponibles">¿En cuántos días los necesita en planta?</label>
+        <input type="number" id="diasDisponibles" placeholder="Ej: 5" min="0">
+
+        <details class="assumptions">
+          <summary>Tiempos usados en la comparación (ajustables)</summary>
+          <label for="diasReclutamiento">Publicación y reclutamiento (días)</label>
+          <input type="number" id="diasReclutamiento" value="3" min="0">
+          <label for="diasSeleccion">Entrevistas y selección (días)</label>
+          <input type="number" id="diasSeleccion" value="4" min="0">
+          <label for="diasExamenes">Exámenes médicos ocupacionales (días)</label>
+          <input type="number" id="diasExamenes" value="2" min="0">
+          <label for="diasAfiliacion">Trámites de afiliación (EPS, ARL, pensión, caja) (días)</label>
+          <input type="number" id="diasAfiliacion" value="2" min="0">
+          <label for="diasInduccion">Inducción y SG-SST (días)</label>
+          <input type="number" id="diasInduccion" value="2" min="0">
+          <label for="diasNosotros">Con nosotros: personal en planta (horas)</label>
+          <input type="number" id="diasNosotros" value="48" min="0">
+        </details>
+
+        <button id="calcularVelocidad">Comparar tiempos de reacción</button>
+      </div>
+
+      <div class="calc-result" id="resultadoVelocidad" hidden>
+        <span class="result-label">Diferencia en tiempo de reacción</span>
+        <span class="result-number" id="diferenciaDias">0 días</span>
+        <p class="result-note" id="notaVelocidad"></p>
+
+        <div class="timeline">
+          <div class="timeline-track">
+            <span class="timeline-title">Contratación directa</span>
+            <div class="timeline-bar" id="barraDirecta"></div>
+            <span class="timeline-total" id="totalDirecto">0 días</span>
+          </div>
+          <div class="timeline-track">
+            <span class="timeline-title">Con nosotros</span>
+            <div class="timeline-bar nosotros" id="barraNosotros"></div>
+            <span class="timeline-total" id="totalNosotros">48 horas</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="calc secondary" id="costos">
+    <div class="calc-inner">
+      <div class="calc-form">
+        <h2>También puede ver el impacto en costos</h2>
+        <label for="salario">Salario base mensual del cargo (COP)</label>
+        <input type="number" id="salario" placeholder="Ej: 1.500.000" min="0">
+        <label for="personas">Número de personas en el cargo</label>
+        <input type="number" id="personas" value="1" min="1">
+        <label for="rotacion">Rotación anual estimada (%)</label>
+        <input type="number" id="rotacion" placeholder="Ej: 25" min="0" max="200">
+        <label for="ausentismo">Días de ausentismo promedio por persona al año</label>
+        <input type="number" id="ausentismo" placeholder="Ej: 8" min="0">
+        <label for="vacante">Días promedio para cubrir una vacante</label>
+        <input type="number" id="vacante" placeholder="Ej: 15" min="0">
+        <details class="assumptions">
+          <summary>Supuestos usados en el cálculo (ajustables)</summary>
+          <label for="parafiscales">Carga prestacional y parafiscal (%)</label>
+          <input type="number" id="parafiscales" value="52" min="0" max="100">
+          <label for="reemplazo">Meses de salario que cuesta reemplazar a alguien</label>
+          <input type="number" id="reemplazo" value="1.5" step="0.1" min="0">
+        </details>
+        <button id="calcular">Calcular costo oculto</button>
+      </div>
+
+      <div class="calc-result" id="resultado" hidden>
+        <span class="result-label">Costo oculto anual estimado</span>
+        <span class="result-number" id="costoOculto">$0</span>
+        <p class="result-note">Esto es lo que su empresa paga por encima del salario, sin contar tercerización.</p>
+        <div class="breakdown">
+          <div class="breakdown-row"><span>Salario base anual</span><strong id="bSalario">$0</strong></div>
+          <div class="breakdown-row"><span>Parafiscales y prestaciones</span><strong id="bParafiscales">$0</strong></div>
+          <div class="breakdown-row"><span>Costo de rotación</span><strong id="bRotacion">$0</strong></div>
+          <div class="breakdown-row"><span>Costo de ausentismo</span><strong id="bAusentismo">$0</strong></div>
+          <div class="breakdown-row"><span>Costo de selección</span><strong id="bSeleccion">$0</strong></div>
+          <div class="breakdown-row total"><span>Total anual de contratación directa</span><strong id="bTotal">$0</strong></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="calc" id="contacto">
+    <div class="calc-inner single">
+      <div class="lead-form standalone">
+        <h3>¿Quiere que evaluemos su caso real?</h3>
+        <p class="result-note">Le contactamos con una propuesta ajustada a su operación.</p>
+        <label for="leadNombre">Nombre</label>
+        <input type="text" id="leadNombre" placeholder="Su nombre">
+        <label for="leadEmpresa">Empresa</label>
+        <input type="text" id="leadEmpresa" placeholder="Nombre de la empresa">
+        <label for="leadTelefono">Teléfono</label>
+        <input type="tel" id="leadTelefono" placeholder="Ej: 3001234567">
+        <label for="leadCorreo">Correo (opcional)</label>
+        <input type="email" id="leadCorreo" placeholder="correo@empresa.com">
+        <button id="enviarLead">Enviar y contactarme</button>
+        <p class="lead-status" id="leadStatus"></p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <span>Cumplimiento SG-SST verificable · Corredor industrial Cali-Yumbo-Palmira</span>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script src="config.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
